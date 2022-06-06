@@ -72,7 +72,7 @@ CompilerIf #PB_Compiler_OS = #PB_OS_Windows And #PB_Compiler_Processor = #PB_Pro
     QOI_ImageEncoder_Register(*ImageEncoder.QOI_ImageEncoder) As "_PB_ImageEncoder_Register@4"
   EndImport
 CompilerElseIf #PB_Compiler_OS = #PB_OS_Windows And #PB_Compiler_Processor = #PB_Processor_x64
-  ImportC ""
+  Import ""
     QOI_ImageDecoder_Register(*ImageDecoder.QOI_ImageDecoder) As "PB_ImageDecoder_Register"
     QOI_ImageEncoder_Register(*ImageEncoder.QOI_ImageEncoder) As "PB_ImageEncoder_Register"
   EndImport
