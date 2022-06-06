@@ -68,13 +68,13 @@ IsImage(0) ; Ensure image library is present
 ; Import ImageDecoder_Register and ImageEncoder_Register
 CompilerIf #PB_Compiler_OS = #PB_OS_Windows And #PB_Compiler_Processor = #PB_Processor_x86  
   Import ""
-    PB_ImageDecoder_Register(*ImageDecoder.QOI_ImageDecoder) As "_PB_ImageDecoder_Register@4"
-    PB_ImageEncoder_Register(*ImageEncoder.QOI_ImageEncoder) As "_PB_ImageEncoder_Register@4"
+    QOI_ImageDecoder_Register(*ImageDecoder.QOI_ImageDecoder) As "_PB_ImageDecoder_Register@4"
+    QOI_ImageEncoder_Register(*ImageEncoder.QOI_ImageEncoder) As "_PB_ImageEncoder_Register@4"
   EndImport
 CompilerElse
   ImportC ""
-    PB_ImageDecoder_Register(*ImageDecoder.QOI_ImageDecoder) As "_PB_ImageDecoder_Register"
-    PB_ImageEncoder_Register(*ImageEncoder.QOI_ImageEncoder) As "_PB_ImageEncoder_Register"
+    QOI_ImageDecoder_Register(*ImageDecoder.QOI_ImageDecoder) As "_PB_ImageDecoder_Register"
+    QOI_ImageEncoder_Register(*ImageEncoder.QOI_ImageEncoder) As "_PB_ImageEncoder_Register"
   EndImport
 CompilerEndIf
 
@@ -358,7 +358,7 @@ EndMacro
       QOIDecoder\Check = @_QOI_Check()
       QOIDecoder\Cleanup = @_QOI_Cleanup()
       QOIDecoder\Decode = @_QOI_Decode()
-      PB_ImageDecoder_Register(QOIDecoder)
+      QOI_ImageDecoder_Register(QOIDecoder)
       Registered = #True 
     EndIf 
     
@@ -553,7 +553,7 @@ EndMacro
       QOIEncoder\ID = #PB_ImagePlugin_QOI
       QOIEncoder\Encode24 = @_QOI_Encode()
       QOIEncoder\Encode32 = @_QOI_Encode()
-      PB_ImageEncoder_Register(QOIEncoder)
+      QOI_ImageEncoder_Register(QOIEncoder)
       Registered = #True
     EndIf
     ProcedureReturn Registered
@@ -561,7 +561,7 @@ EndMacro
 
 ;}
 ; IDE Options = PureBasic 6.00 Beta 5 - C Backend (MacOS X - arm64)
-; CursorPosition = 163
-; FirstLine = 130
+; CursorPosition = 541
+; FirstLine = 522
 ; Folding = ---
 ; EnableXP
