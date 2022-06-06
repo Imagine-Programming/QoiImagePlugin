@@ -71,6 +71,11 @@ CompilerIf #PB_Compiler_OS = #PB_OS_Windows And #PB_Compiler_Processor = #PB_Pro
     QOI_ImageDecoder_Register(*ImageDecoder.QOI_ImageDecoder) As "_PB_ImageDecoder_Register@4"
     QOI_ImageEncoder_Register(*ImageEncoder.QOI_ImageEncoder) As "_PB_ImageEncoder_Register@4"
   EndImport
+CompilerElseIf #PB_Compiler_OS = #PB_OS_Windows And #PB_Compiler_Processor = #PB_Processor_x64
+  ImportC ""
+    QOI_ImageDecoder_Register(*ImageDecoder.QOI_ImageDecoder) As "PB_ImageDecoder_Register"
+    QOI_ImageEncoder_Register(*ImageEncoder.QOI_ImageEncoder) As "PB_ImageEncoder_Register"
+  EndImport
 CompilerElse
   ImportC ""
     QOI_ImageDecoder_Register(*ImageDecoder.QOI_ImageDecoder) As "_PB_ImageDecoder_Register"
@@ -560,8 +565,8 @@ EndMacro
   EndProcedure
 
 ;}
-; IDE Options = PureBasic 6.00 Beta 5 - C Backend (MacOS X - arm64)
-; CursorPosition = 541
-; FirstLine = 522
+; IDE Options = PureBasic 5.72 (Windows - x64)
+; CursorPosition = 76
+; FirstLine = 60
 ; Folding = ---
 ; EnableXP
